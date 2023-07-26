@@ -41,6 +41,10 @@ spec:
           title: Repository Location
           type: string
           ui:field: RepoUrlPicker
+          ui:options:
+            allowedHosts:
+              - github.com
+              - gitlab.com
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -59,6 +63,9 @@ spec:
       name: Publish
       action: publish
       input:
+        allowedHosts:
+          - github.com
+          - gitlab.com
         description: This is ${{ parameters.component_id }}
         repoUrl: ${{ parameters.repoUrl }}
 
